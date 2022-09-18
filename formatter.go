@@ -2,8 +2,14 @@ package formatter
 
 import (
 	"bytes"
+	"github.com/fatih/color"
 	"strings"
 )
+
+func Warning(message string) string {
+	color.NoColor = false
+	return color.RedString(message)
+}
 
 func Space(length int, parts ...string) string {
 	if len(parts) == 0 {

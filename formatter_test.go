@@ -6,6 +6,17 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
+func TestWarning(t *testing.T) {
+	result := Warning("test")
+	if result != "\u001B[31mtest\u001B[0m" {
+		t.Error("incorrect output:", []byte(result))
+	}
+	result2 := Warning("")
+	if result2 != "\u001B[31m\u001B[0m" {
+		t.Error("incorrect output:", []byte(result2))
+	}
+}
+
 func TestSpace(t *testing.T) {
 	data := []struct {
 		name   string
